@@ -15,7 +15,7 @@ export default function App() {
     try {
       console.log("Sending request to backend with topic:", topic);
 
-      const res = await fetch('https://your-backend-url.onrender.com/generate', {
+      const res = await fetch('https://diagramgenerator.onrender.com/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ topic }),
