@@ -1,0 +1,123 @@
+/* Base page style */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #EBE1D0;
+  /* Light gray */
+  color: #1f2937;
+  /* Dark gray text */
+}
+
+/* Main container */
+h1 {
+  text-align: center;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+/* Form card */
+form {
+  background-color: #d5e1da;
+  max-width: 400px;
+  max-height: 200px;
+  ;
+  /* Narrower card */
+  margin: 1rem auto;
+  padding: 1.5rem;
+  /* Less padding */
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(211, 179, 179, 0.05);
+}
+
+
+/* Textarea styling */
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #dce0e7;
+  border-radius: 8px;
+  resize: vertical;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+textarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  /* Smaller padding */
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  /* Tighter rounding */
+  resize: vertical;
+  font-size: 0.9rem;
+  /* Smaller text */
+  line-height: 1.4;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+
+/* Button styling */
+button {
+  margin-top: 1rem;
+  width: 100%;
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #1e40af;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Error text */
+.text-red-600 {
+  color: #dc2626;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Diagram card */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  object-fit: contain;
+  max-height: 60vh;
+  /* ✅ Limit vertical height to 60% of viewport */
+}
+
+
+/* Diagram viewer card */
+.diagram-viewer {
+  background-color: #ffffff;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.diagram-viewer h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #1f2937;
+  text-align: center;
+}
