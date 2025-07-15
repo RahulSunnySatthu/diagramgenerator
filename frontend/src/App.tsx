@@ -13,8 +13,9 @@ export default function App() {
     setDiagramSrc(null);
 
     try {
-      // 🟢 1️⃣ Call Flask backend to get blockdiag text
-      const res = await fetch('http://localhost:5000/generate', {
+      console.log("Sending request to backend with topic:", topic);
+
+      const res = await fetch('https://your-backend-url.onrender.com/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ topic }),
@@ -28,9 +29,7 @@ export default function App() {
 
       console.log('Blockdiag code from server:', data.diagram);
 
-      // 🟢 2️⃣ Compress and encode for Kroki 
       const svgUrl = await buildKrokiUrl(data.diagram);
-
       console.log('Kroki URL:', svgUrl);
 
       setDiagramSrc(svgUrl);
@@ -52,14 +51,12 @@ export default function App() {
   );
 }
 
-// ✅ Kroki URL builder with correct base64url encoding
 async function buildKrokiUrl(diagramCode: string): Promise<string> {
   const compressed = await compressText(diagramCode);
   const encoded = toBase64Url(compressed);
   return `https://kroki.io/blockdiag/svg/${encoded}`;
 }
 
-// ✅ Browser-safe zlib compression
 async function compressText(text: string): Promise<Uint8Array> {
   const stream = new CompressionStream('deflate');
   const writer = stream.writable.getWriter();
@@ -70,10 +67,8 @@ async function compressText(text: string): Promise<Uint8Array> {
   return new Uint8Array(compressed);
 }
 
-// ✅ URL-safe base64 encoding
 function toBase64Url(bytes: Uint8Array): string {
   const binary = String.fromCharCode(...bytes);
   const base64 = btoa(binary);
-  // Convert base64 to base64url
   return base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 }
